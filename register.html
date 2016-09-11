@@ -28,8 +28,15 @@
     <!-- Stylesheet
     ================================================== -->
     <link rel="stylesheet" type="text/css" href="css/plugins.css" media="screen" />
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrapValidator.css"  />
+
 	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/green.css" media="screen"/>
+  
+      <!-- Javascript -->
+
+       
 
     <!-- Modernizr
     ================================================== -->
@@ -91,49 +98,49 @@
                 <p class="sub-title">Be a member of us!</p>
                 <h3 class="title">Register</h3>
                 <hr/>
-               <form id="contactForm" name="contactForm" method="POST" class="margin-t-40">
+               <form id="form" name="form" method="POST" class="margin-t-40" >
                     <div class="row">
                         <div class="col-md-12">
                         <div id="divFormRegister">
                             <!-- Name -->
                             
                             <!-- Email -->
-                             <label>*Name: </label> <br><input class="" type="text" name="name" id="camposRegister" placeholder="Name" /><br>
+                             <label>*Name: </label> <br><input class="camposRegister" type="text" name="name" id="name" placeholder="Name"  /><br>
                              <label>*Type:</label><br> 
-                                  <select name="type" id="camposRegister">
-                                  <option value="volvo">No selected</option>
+                              <select name="type" class="camposRegister" id="type" >
+                                  <option value="">No selected</option>
                                   <option value="saab">Rock</option>
                                   <option value="fiat">Pop</option>                      
                               </select><br>
 
-                            <label>*Country: </label><br><select name="country" id="camposRegister">
-                              <option value="volvo">No selected</option>
+                            <label>*Country: </label><br><select name="country" id="country" class="camposRegister">
+                              <option value="">No selected</option>
                               <option value="saab">Mexico</option>
                               <option value="fiat">Usa</option>
                             </select><br>
 
-                            <label>*State: </label><br><select name="state" id="camposRegister">
-                              <option value="volvo">No selected</option>
+                            <label>*State: </label><br><select name="state" id="state" class="camposRegister">
+                              <option value="">No selected</option>
                               <option value="saab">Mexico</option> 
                               <option value="fiat">Usa</option>
                             </select><br>
 
-                           <label>*E-mail:</label><br> <input class="" type="text" name="e-mail" id="camposRegister" placeholder="E-mail" /><br>
-                           <label>*Password:</label><br> <input class="" type="password" name="e-mail" id="camposRegister" placeholder="Password" /><br>
-                           <label>*Confirm password:</label> <br><input class="" type="password" name="e-mail" id="camposRegister" placeholder="Confirm password" /><br>
-                           <label>Phone:</label> <br><input class="" type="text" name="phone" id="camposRegister" placeholder="Phone" /><br>
-                           <label>Price: </label><br><input class="" type="text" name="price" id="camposRegister" placeholder="Price" /><br>
-                           <label>Image URL: </label><br> <br><input class="" type="text" name="image" id="camposRegister" placeholder="URL of your profile image" /><br>
+                           <label>*E-mail:</label><br> <input class="camposRegister" type="email" name="email" id="email" placeholder="E-mail" /><br>
+                           <label>*Password:</label><br> <input class="camposRegister" type="password" name="password" id="password" placeholder="Password" id="password" /><br>
+                           <label>*Confirm password:</label> <br><input class="camposRegister" type="password" name="password2" id="password2" placeholder="Confirm password" /><br>
+                           <label>Phone:</label> <br><input class="camposRegister" type="text" name="phone" id="phone" placeholder="Phone" /><br>
+                           <label>Price: </label><br><input class="camposRegister" type="text" name="price" id="price" placeholder="Price" /><br>
+                           <label>Image URL: </label><br> <br><input class="camposRegister" type="text" name="image" id="image" placeholder="URL of your profile image" /><br>
                            
-                            <label>Music list: </label><br><textarea name="musiclist" id="camposTextArea" placeholder="Paste here your YouTube's shared list"></textarea><br>
+                            <label>Music list: </label><br><textarea class="camposTextArea" name="musiclist" id="musiclist" placeholder="Paste here your YouTube's shared list"></textarea><br>
 
-                            <label>Description: </label><br><textarea name="description" id="camposTextArea" placeholder="You can add here some additional information"></textarea><br>
+                            <label>Description: </label><br><textarea class="camposTextArea" name="description" id="description" placeholder="You can add here some additional information"></textarea><br>
                              
 
                            
                             <!-- Submit_Button -->
                          
-                            <input type="submit" class="btn btn-custom" id="contact_submit_btn" name="contact_submit_btn" value="Register" /><br>
+                            <input type="submit" class="btn btn-custom"  value="Register" id="btn"/><br>
                            
                             </div>
                         </div>
@@ -163,10 +170,68 @@
     <a href="#" class="back-to-top"> <i class="pe-7s-angle-up"></i></a>
 
 
-	<!-- Javascript -->
+  <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/plugins.js"></script>
-	<script type="text/javascript" src="js/jquery.app.js"></script>
+  <script type="text/javascript" src="js/jquery.app.js"></script>
+<script src="js/jquery.validate.min.js"></script>   
+
+
+
+
+
+
+  
+<script>
+$(document).ready(function(){
+ 
+  $("#btn").on("click", function(){
+ 
+    $("#form").validate({
+    rules:
+    {
+     name: { required:true,maxlength:255},
+     type: { required:true },
+     country: { required:true },
+     state: { required:true },
+     email: { required:true, email:true, maxlength:255},
+     phone: {maxlength:255},
+     price: {maxlength:255},
+     image: {url:true, maxlength:255},
+     musiclist: {maxlength:500},
+     description: {maxlength:500},
+
+      password: { required:true,  minlength:6, maxlength:255},
+      password2:{equalTo: "#password",minlength:6, maxlength:255}
+    },
+    messages: {
+       name: {required: jQuery.validator.format('<div id="error" class="msg-error">Required field</div>'),  maxlength: jQuery.validator.format('<div id="error" class="msg-error">Type less than 255 characters</div>') },
+       type: {required: jQuery.validator.format('<div id="error" class="msg-error">Required field</div>') },
+       country: {required: jQuery.validator.format('<div id="error" class="msg-error">Required field</div>') },
+       state: {required: jQuery.validator.format('<div id="error" class="msg-error">Required field</div>') },
+       email: { required: jQuery.validator.format('<div id="error" class="msg-error">Required field</div>'), email: jQuery.validator.format('<div id="error" class="msg-error">Wrong format</div>'), maxlength: jQuery.validator.format('<div id="error" class="msg-error">Type less than 255 characters</div>') },
+       phone: { maxlength: jQuery.validator.format('<div id="error" class="msg-error">Type less than 255 characters</div>') },
+       price: { maxlength: jQuery.validator.format('<div id="error" class="msg-error">Type less than 255 characters</div>') },
+       image: { url: jQuery.validator.format('<div id="error" class="msg-error">Wrong format</div>'), maxlength: jQuery.validator.format('<div id="error" class="msg-error">Type less than 255 characters</div>') },
+       musiclist: { maxlength: jQuery.validator.format('<div id="error" class="msg-error">Type less than 500 characters</div>') },
+       description: { maxlength: jQuery.validator.format('<div id="error" class="msg-error">Type less than 500 characters</div>') },
+
+        password: {required: jQuery.validator.format('<div id="error" class="msg-error">Required field</div>'), minlength: jQuery.validator.format('<div id="error" class="msg-error">At least 6 characters</div>'), maxlength: jQuery.validator.format('<div id="error" class="msg-error">Type less than 255 characters</div>') },
+        password2: {required: jQuery.validator.format('<div id="error" class="msg-error">Required field</div>'), equalTo: jQuery.validator.format('<div id="error" class="msg-error">The passwords do not match</div>'), minlength: jQuery.validator.format('<div id="error" class="msg-error">At least 6 characters</div>'), maxlength: jQuery.validator.format('<div id="error" class="msg-error">Type less than 255 characters</div>') },
+        
+      }
+    });
+ 
+ 
+  });
+});
+</script>
+ 
+         
+
+       
+
+
 
 
 </body>
