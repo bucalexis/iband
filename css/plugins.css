@@ -3788,14 +3788,27 @@ figure {
 img {
   vertical-align: middle;
 }
-.img-responsive,
+
+#div-modal-img{
+    align:center;
+    text-align: center;
+    align-content: center;
+
+}
+.img-responsive{
+  display: inline;
+  max-width: 100%;
+  max-height: 400px;
+}
+
+
 .thumbnail > img,
 .thumbnail a > img,
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
   max-width: 100%;
-  height: auto;
+  max-height: 400px;
 }
 .img-rounded {
   border-radius: 6px;

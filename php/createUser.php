@@ -22,14 +22,17 @@
 
 
     $correct=true;
-    $errors="";
+    $errors='<div id="alert" >';
+
+  
+
 
     //Validate name
     if($input['name']==""){
     	$correct=false;
     	$errors=$errors.'Name is required.<br>';
     }
-    if(strlen($input['name']>255)){
+    if(strlen($input['name'])>255){
     	$correct=false;
     	$errors=$errors.'Name must be less than 255 characters.<br>';
     }
@@ -77,7 +80,7 @@
     	$errors=$errors.'Email is required.<br>';
     }
     else{
-	    if(strlen($input['email']>255)){
+	    if(strlen($input['email'])>255){
 	    	$correct=false;
 	    	$errors=$errors.'Email must be less than 255 characters.<br>';
 	    }
@@ -89,7 +92,7 @@
 	    }
 
 	   
-	    if(booleanConsult("SELECT * FROM state WHERE email=".$input['email'])) {
+	    if(booleanConsult("SELECT * FROM musicartist WHERE email='".$input['email']."'")) {
 	    	$correct=false;
 	    	$errors=$errors.'Email already exists.<br>';
          }
@@ -101,11 +104,11 @@
     	$errors=$errors.'Password is required.<br>';
     }
     else{
-	    if(strlen($input['password']<6)){
+	    if(strlen($input['password'])<6){
 	    	$correct=false;
 	    	$errors=$errors.'Password must be at least 6 characters.<br>';
 	    }
-	    if(strlen($input['password']>255)){
+	    if(strlen($input['password'])>255){
 	    	$correct=false;
 	    	$errors=$errors.'Password must be less than 255 characters.<br>';
 	    }
@@ -124,25 +127,25 @@
 	}
     
     //Validate phone
-    if(strlen($input['phone']>255)){
+    if(strlen($input['phone'])>255){
     	$correct=false;
     	$errors=$errors.'Phone must be less than 255 characters.<br>';
     }
 
     //Validate price
-    if(strlen($input['price']>255)){
+    if(strlen($input['price'])>255){
     	$correct=false;
     	$errors=$errors.'Price must be less than 255 characters.<br>';
     }
 
     //Validate musiclist
-    if(strlen($input['musiclist']>500)){
+    if(strlen($input['musiclist'])>500){
     	$correct=false;
     	$errors=$errors.'Music list must be less than 500 characters.<br>';
     }
 
     //Validate description
-    if(strlen($input['description']>500)){
+    if(strlen($input['description'])>500){
     	$correct=false;
     	$errors=$errors.'Description must be less than 500 characters.<br>';
     }
@@ -156,17 +159,56 @@
 	    	$correct=false;
 	    	$errors=$errors.'Image URL must be less than 255 characters.<br>';
 	    }
+	    else{
+	    	 if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$input['image'])) {
+	    	 $correct=false;
+	    	 $errors=$errors.'Wrong image URL.<br>';
+	       }
+	       else{
+	       	if(getimagesize($input['image'])<1){
+			      $correct=false;
+	    	      $errors=$errors.'Wrong image URL.<br>';
+			 
+			 }
+		   }
 
-	    if (!filter_var($input['email'], FILTER_VALIDATE_URL)){
-	    	$correct=false;
-	    	$errors=$errors.'Wrong image URL.<br>';
 	    }
-	}
+	
+ }
+
+  $errors=$errors.'</div>';
 
 
+  //If there're no errors the user is created, on the other hand if there are, the errors will be displayed in the register view
+  if($correct){
+      $sql="INSERT INTO musicartist VALUES (".
+      		"null,".
+      		"'".$input['name']."',".
+      		"'".$input['phone']."',".
+      		"'".$input['price']."',".
+      		"'".$input['email']."',".
+      		"'".$input['password']."',".
+      		"'".$input['image']."',".
+      		"'".$input['musiclist']."',".
+      		"'".$input['description']."',".
+      		"'".$input['country']."',".
+      		"'".$input['state']."',".
+      		"'".$input['type']."',".
+      		"null,".
+      		"null)";
+      
+      dml($sql);
+      $errors="<div id=success>Your account was created succesfully.</div>";
+      $_SESSION['errors']=$errors;
+      header('Location: ./../login.php');	
+      
 
+  }
+  else{
+  	$_SESSION['errors']=$errors;
+    header('Location: ./../register.php');	
+  }
 
-   $_SESSION['errors']=$errors;
-   header('Location: ./../register.php');
+   
 
 ?>

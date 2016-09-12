@@ -1,5 +1,7 @@
 <?php session_start(); 
-
+if(isset($_SESSION['user'])){    
+   header('Location: ./myprofile.php');                  
+} 
 ?>
 <!doctype html>
 <html lang="en" class="no-js">
@@ -30,11 +32,14 @@
     <!-- Stylesheet
     ================================================== -->
     <link rel="stylesheet" type="text/css" href="css/plugins.css" media="screen" />
+     
 
         <link rel="stylesheet" type="text/css" href="css/bootstrapValidator.css"  />
 
 	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/green.css" media="screen"/>
+    
+
   
       <!-- Javascript -->
 
@@ -74,10 +79,10 @@
 				<a class="elemadded responsive-link" href="#">Menu</a>
 				<div class="navbar-vertical">
 					<ul class="main-menu nav">
-						<li ><a href="./index.html"><i class="pe-7s-home"></i>Home</a></li>
-                        <li ><a href="./searching.html"><i class="pe-7s-search"></i>Searching</a></li>
-                        <li class="active"><a href="./register.html"><i class="pe-7s-add-user"></i>Register</a></li>
-                        <li ><a href="./login.html"><i class="pe-7s-network"></i>Login</a></li>
+						<li ><a href="./index.php"><i class="pe-7s-home"></i>Home</a></li>
+                        <li ><a href="./searching.php"><i class="pe-7s-search"></i>Searching</a></li>
+                        <li class="active"><a href="./register.php"><i class="pe-7s-add-user"></i>Register</a></li>
+                        <li ><a href="./login.php"><i class="pe-7s-network"></i>Login</a></li>
 					</ul>
 				</div>
 			</header>
@@ -103,11 +108,14 @@
                 <?php 
                     if(isset($_SESSION['errors'])){                    
                        echo '<div>'.$_SESSION['errors'].'</div>';
-                        session_unset();
-                        session_destroy();
                     }
+                    if(!isset($_SESSION['user'])){    
+                       session_unset();
+                       session_destroy();                 
+                    } 
+                    
                 ?>
-               <form id="formm" name="form" method="POST" class="margin-t-40" action="./php/crearUsuario.php">
+               <form id="formm" name="form" method="POST" class="margin-t-40" action="./php/createUser.php">
                     <div class="row">
                         <div class="col-md-12">
                         <div id="divFormRegister">
@@ -153,7 +161,7 @@
                            <label>*Confirm password:</label> <br><input class="camposRegister" type="password" name="password2" id="password2" placeholder="Confirm password" /><br>
                            <label>Phone:</label> <br><input class="camposRegister" type="text" name="phone" id="phone" placeholder="Phone" /><br>
                            <label>Price: </label><br><input class="camposRegister" type="text" name="price" id="price" placeholder="Price" /><br>
-                           <label>Image URL: </label><br> <br><input class="camposRegister" type="text" name="image" id="image" placeholder="URL of your profile image" /><br>
+                           <label>Image URL: </label><br><input class="camposRegister" type="text" name="image" id="image" placeholder="URL of your profile image" /><br>
                            
                             <label>Music list: </label><br><textarea class="camposTextArea" name="musiclist" id="musiclist" placeholder="Paste here your YouTube's shared list"></textarea><br>
 

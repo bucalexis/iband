@@ -1,4 +1,31 @@
+<?php session_start(); 
 
+ if(!isset($_SESSION['user'])){    
+   header('Location: ./login.php');                  
+ }
+ else{
+     include ('./php/util.php'); 
+     $user=consult("SELECT * FROM musicartist WHERE id=".$_SESSION['user']);
+     $name=$user[0]['name'];
+     
+     $type=consult("SELECT name FROM type WHERE id=".$user[0]['id_type']);
+     $type=$type[0]['name'];
+     $country=consult("SELECT name FROM country WHERE id=".$user[0]['id_country']);
+     $country=$country[0]['name'];
+     $state=consult("SELECT name FROM state WHERE id=".$user[0]['id_state']);
+     $state=$state[0]['name'];
+
+     $image=$user[0]['image'];
+     if($image==""||(getimagesize($input['image'])<1))
+        $image="img/default.jpg";
+     $email=$user[0]['email'];
+     $phone=$user[0]['phone'];
+     $price=$user[0]['price'];
+     $musiclist=$user[0]['musiclist'];
+     $description=$user[0]['description'];
+
+ }
+?>
 <!doctype html>
 <html lang="en" class="no-js">
 
@@ -65,9 +92,9 @@
 				<a class="elemadded responsive-link" href="#">Menu</a>
 				<div class="navbar-vertical">
 					<ul class="main-menu nav">
-						<li class="active"><a href="./myprofile.html"><i class="pe-7s-user"></i>My profile</a></li>
-                        <li ><a href="./update_profile.html"><i class="pe-7s-note"></i>Update profile</a></li>
-                        <li ><a href="./login.html"><i class="pe-7s-network"></i>Logout</a></li>
+						<li class="active"><a href="./myprofile.php"><i class="pe-7s-user"></i>My profile</a></li>
+                        <li ><a href="./update_profile.php"><i class="pe-7s-note"></i>Update profile</a></li>
+                        <li ><a href="./php/logout.php"><i class="pe-7s-network"></i>Logout</a></li>
 					</ul>
 				</div>
 			</header>
@@ -110,7 +137,7 @@
                     <div class="col-md-3 col-sm-4">
                         <div class=" design effects overlay-effect clearfix">
                                     <div class="img">
-                                        <img src="img/portfolio/port7.jpg" alt="Portfolio Item">
+                                        <img src=<?php echo '"'.$image.'"'; ?> alt="Sorry, the image is not available">
                                         <div class="overlay">
                                             <button class="md-trigger expand" data-modal="modal-1"><i class="fa fa-search"></i><br/>view More</button>
                                         </div>
@@ -119,16 +146,14 @@
                     </div>
                     <div class="col-md-9 col-sm-8">
                         <div class="cv-item">
-                            <h4>Artist 1</h4>
+                            <h4><?php echo $name; ?></h4>
                             <p>
-                                <strong>Country: </strong>Mexico<br>
-                                <strong>State: </strong>Mexico<br>
-                                <strong>Type: </strong>Banda<br>
-                                <strong>Price: </strong>$65/hour<br>
+                                <strong>Country: </strong><?php echo $country; ?><br>
+                                <strong>State: </strong><?php echo $state; ?><br>
+                                <strong>Type: </strong><?php echo $type; ?><br>
+                                <strong>Price: </strong><?php if($price==""){echo "Not available";} else {echo $price;} ?><br>
                                 <strong>Description: </strong>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae sem laoreet, mattis arcu at, lacinia 
-                                ligula. Praesent bibendum eros ut nulla adipiscing, tempus tincidunt tellus scelerisque. Nullam pharetra 
-                                urna facilisis tellus vulputate.
+                                <?php if($description==""){echo "Not available";} else {echo $description;} ?>
                             </p>
                         </div><!-- end .cv-item -->
                     </div>
@@ -152,10 +177,10 @@
                             <div class="md-modal md-effect" id="modal-1">
                                     <div class="md-content">
                                         <div class="folio">
-                                            <div class="port-img margin-t-40">
-                                                <img src="img/portfolio/port1.jpg" alt="Portfolio-image" class="img-responsive">
+                                            <div class="port-img margin-t-40" id="div-modal-img">
+                                                <img src="./img/play.png" alt="Sorry, the image is not available" class="img-responsive">
                                             </div>
-                                            <div class="sp-name"><strong>Project Title Here</strong><br><span>Web Design</span></div>
+                                            <div class="sp-name"><strong><?php echo $name; ?></strong><br><span><?php echo $country.", ".$state."<br>".$type; ?></span></div>
                                             <div class="sp-dsc">
                                                 This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.
                                                 <blockquote>

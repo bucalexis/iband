@@ -61,6 +61,21 @@ function booleanConsult($query)
 }
 
 
+function dml($sql){
+
+    $mysql=createConnection();
+  
+    if ($mysql->query($sql) === TRUE) {
+      
+    } else {
+        //echo 'Error updating record: ' . $mysql->error;
+      }
+
+
+      closeConnection($mysql);
+    
+  }
+
 
 
 ?>

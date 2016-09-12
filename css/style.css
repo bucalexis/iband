@@ -23,6 +23,26 @@
 14.RESPONSIVE
 -------------------------------------------------*/
 
+#alert{
+    color: #b94a48 !important;
+    background-color: #f2dede !important;
+    border-color: #eed3d7 !important;
+    padding: 8px 35px 8px 14px !important;
+    border: 1px solid #fbeed5 !important;
+    border-radius: 4px !important;
+    line-height: 20px !important;
+}
+
+#success{
+  color: #3c763d !important;
+  background-color: #dff0d8 !important;
+  border-color: #d6e9c6 !important;
+  padding: 8px 35px 8px 14px !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  line-height: 20px !important;
+}
+
 #error{
 
  color:  #f50d0d ! important;
@@ -1020,8 +1040,13 @@ button.expand:focus,button.expand:active{
     overflow-y: scroll;
   }
 }
+
+.img img{
+  max-width: 100%;
+  max-height: 50px;
+}
 @media screen and (max-width:767px){
-  .effects .img img {
+  .effects  {
 max-height: 100%;
 }
   .md-content {
