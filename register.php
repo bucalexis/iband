@@ -1,6 +1,6 @@
+<?php session_start(); 
 
-
-
+?>
 <!doctype html>
 <html lang="en" class="no-js">
 
@@ -100,6 +100,13 @@
                 <p class="sub-title">Be a member of us!</p>
                 <h3 class="title">Register</h3>
                 <hr/>
+                <?php 
+                    if(isset($_SESSION['errors'])){                    
+                       echo '<div>'.$_SESSION['errors'].'</div>';
+                        session_unset();
+                        session_destroy();
+                    }
+                ?>
                <form id="formm" name="form" method="POST" class="margin-t-40" action="./php/crearUsuario.php">
                     <div class="row">
                         <div class="col-md-12">
@@ -110,10 +117,12 @@
                              <label>*Name: </label> <br><input class="camposRegister" type="text" name="name" id="name" placeholder="Name"  /><br>
                              <label>*Type:</label><br> 
                               <select name="type" class="camposRegister" id="type" >
+                                <option value="">No selected</option>
+
                               <?php
                                   include ('./php/util.php'); 
                                   $data= consult ('SELECT * FROM type');
-
+                                  
                                   foreach($data as $row){
                                     echo '<option value="'.$row[0].'">'.$row[1].'</option>';
 
@@ -122,16 +131,21 @@
                                                    
                               </select><br>
 
-                            <label>*Country: </label><br><select name="country" id="country" class="camposRegister">
+                            <label>*Country: </label><br><select name="country" id="country" class="camposRegister" onchange="dynamicConsult($('#country').val());return false;">
                               <option value="">No selected</option>
-                              <option value="saab">Mexico</option>
-                              <option value="fiat">Usa</option>
+                               <?php
+                                
+                                $data= consult ('SELECT * FROM country');
+                                  
+                                  foreach($data as $row){
+                                    echo '<option value="'.$row[0].'">'.$row[1].'</option>';
+                                  }
+                              ?>
                             </select><br>
 
                             <label>*State: </label><br><select name="state" id="state" class="camposRegister">
                               <option value="">No selected</option>
-                              <option value="saab">Mexico</option> 
-                              <option value="fiat">Usa</option>
+                               
                             </select><br>
 
                            <label>*E-mail:</label><br> <input class="camposRegister" type="email" name="email" id="email" placeholder="E-mail" /><br>
@@ -234,6 +248,30 @@ $(document).ready(function(){
  
   });
 });
+</script>
+
+
+<script>
+function dynamicConsult(idComboBox){
+        var parametros = {
+                "idComboBox" : idComboBox
+        };
+        if(idComboBox!="")
+        $.ajax({
+                data:  parametros,
+                url:   './php/ajax_states.php',
+                type:  'post',
+                beforeSend: function () {
+                       
+                },
+                success:  function (response) {
+                       $("#state").html(response);
+                }
+        });
+      else{
+        $("#state").html('<option value="">No selected</option>');
+      }
+}
 </script>
  
          
