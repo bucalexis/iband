@@ -16,8 +16,13 @@
      $state=$state[0]['name'];
 
      $image=$user[0]['image'];
-     if($image==""||(getimagesize($input['image'])<1))
-        $image="img/default.jpg";
+     if($image=="")
+        $image="./img/default.jpg";
+    else {
+        if(getimagesize($image)<1){
+        $image="./img/default.jpg";
+        }
+    }
      $email=$user[0]['email'];
      $phone=$user[0]['phone'];
      $price=$user[0]['price'];

@@ -83,20 +83,20 @@
 	    if(strlen($input['email'])>255){
 	    	$correct=false;
 	    	$errors=$errors.'Email must be less than 255 characters.<br>';
-	    }
-
-	   
-	    if (!filter_var($input['email'], FILTER_VALIDATE_EMAIL)){
-	    	$correct=false;
-	    	$errors=$errors.'Wrong email.<br>';
-	    }
-
-	   
-	    if(booleanConsult("SELECT * FROM musicartist WHERE email='".$input['email']."'")) {
-	    	$correct=false;
-	    	$errors=$errors.'Email already exists.<br>';
+	    }else{
+        if (!filter_var($input['email'], FILTER_VALIDATE_EMAIL)){
+        $correct=false;
+        $errors=$errors.'Wrong email.<br>';
+        }
+        else{
+          if(booleanConsult("SELECT * FROM musicartist WHERE email='".$input['email']."'")) {
+          $correct=false;
+          $errors=$errors.'Email already exists.<br>';
          }
-     }
+
+        }
+      }
+    }
 
     //Validate password
      if($input['password']==""){
@@ -155,7 +155,7 @@
 
     if($input['image']!="")
     {
-	    if(strlen($input['image']>255)){
+	    if(strlen($input['image'])>255){
 	    	$correct=false;
 	    	$errors=$errors.'Image URL must be less than 255 characters.<br>';
 	    }
