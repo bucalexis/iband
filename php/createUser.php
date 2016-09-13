@@ -1,10 +1,13 @@
 <?php
+
+ //Controller to validate data from the register view and create an user.
+
+
  session_start(); 
-  
-    
-	include ('./util.php'); 
+ include ('./util.php'); 
     
 
+    //Store $_POST data into an array
     $input=array(
     	'name' => trim($_POST['name']),
     	'type'=> $_POST['type'],
@@ -21,7 +24,10 @@
     	);
 
 
+    //Variable to determine if the fields are correct
     $correct=true;
+
+    //If the fields are not correct the html code of the error will be stored in this variable
     $errors='<div id="alert" >';
 
   
@@ -40,14 +46,14 @@
     //Validate type
     if($input['type']!=""){
 	    if(!booleanConsult("SELECT * FROM type WHERE id=".$input['type'])) {
-	    	$correct=false;
-	    	$errors=$errors.'Type is not valid.<br>';
-	    }
-	}
-	else{
-		$correct=false;
-	    $errors=$errors.'Type is not valid.<br>';
-	}
+	    	  $correct=false;
+	    	  $errors=$errors.'Type is not valid.<br>';
+	      }
+    	}
+    	else{
+    		  $correct=false;
+    	    $errors=$errors.'Type is not valid.<br>';
+    	}
 
 
     //Validate country
@@ -55,12 +61,12 @@
 	    if(!booleanConsult("SELECT * FROM country WHERE id=".$input['country'])) {
 	    	$correct=false;
 	    	$errors=$errors.'Country is not valid.<br>';
-	    }
-	}
-	else{
-		$correct=false;
-	    $errors=$errors.'Country is not valid.<br>';
-	}
+	       }
+	   }
+	     else{
+	     	$correct=false;
+	      $errors=$errors.'Country is not valid.<br>';
+	     }
 
     //Validate state
     if($input['state']!=""){
@@ -68,11 +74,11 @@
 	    	$correct=false;
 	    	$errors=$errors.'State is not valid.<br>';
 	    }
-	}
-	else{
-		$correct=false;
-	    $errors=$errors.'State is not valid.<br>';
-	}
+  	}
+  	else{
+  		  $correct=false;
+  	    $errors=$errors.'State is not valid.<br>';
+  	}
 
     //Validate email
     if($input['email']==""){
@@ -167,10 +173,10 @@
 	       else{
 	       	if(getimagesize($input['image'])<1){
 			      $correct=false;
-	    	      $errors=$errors.'Wrong image URL.<br>';
+	    	    $errors=$errors.'Wrong image URL.<br>';
 			 
-			 }
-		   }
+			     }
+		      }
 
 	    }
 	

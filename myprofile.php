@@ -1,3 +1,7 @@
+
+ <!-- Obtain and verify user's information
+    ================================================== -->
+
 <?php session_start(); 
 
  if(!isset($_SESSION['user'])){    

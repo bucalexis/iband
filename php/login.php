@@ -1,8 +1,7 @@
 <?php
+ //Controller to validate the information from the login view, if everything is correct the user access to the system
  session_start(); 
-  
-    
-	include ('./util.php'); 
+ include ('./util.php'); 
     
 
     $input=array(
@@ -53,7 +52,7 @@
 	    	$correct=false;
 	    	$errors=$errors.'Password must be less than 255 characters.<br>';
 	    }
-	}
+	   }
  
     if($correct){
       //If there're no errors the user login into the system

@@ -153,30 +153,30 @@ if(isset($_SESSION['user'])){
 	<script type="text/javascript" src="js/jquery.app.js"></script>
     <script src="js/jquery.validate.min.js"></script>   
 
-
-<script>
-$(document).ready(function(){
- 
-  $("#btn").on("click", function(){
- 
-    $("#form").validate({
-    rules:
-    {
-     email: { required:true, email:true, maxlength:255},
-     password: { required:true,  minlength:6, maxlength:255}
-      
-    },
-    messages: {
-       email: { required: jQuery.validator.format('<div id="error" class="msg-error">Required field</div>'), email: jQuery.validator.format('<div id="error" class="msg-error">Wrong format</div>'), maxlength: jQuery.validator.format('<div id="error" class="msg-error">Type less than 255 characters</div>') },
-    password: {required: jQuery.validator.format('<div id="error" class="msg-error">Required field</div>'), minlength: jQuery.validator.format('<div id="error" class="msg-error">At least 6 characters</div>'), maxlength: jQuery.validator.format('<div id="error" class="msg-error">Type less than 255 characters</div>') },
-        
-      }
+     <!-- Validator for the form -->
+    <script>
+    $(document).ready(function(){
+     
+      $("#btn").on("click", function(){
+     
+        $("#form").validate({
+        rules:
+        {
+         email: { required:true, email:true, maxlength:255},
+         password: { required:true,  minlength:6, maxlength:255}
+          
+        },
+        messages: {
+           email: { required: jQuery.validator.format('<div id="error" class="msg-error">Required field</div>'), email: jQuery.validator.format('<div id="error" class="msg-error">Wrong format</div>'), maxlength: jQuery.validator.format('<div id="error" class="msg-error">Type less than 255 characters</div>') },
+        password: {required: jQuery.validator.format('<div id="error" class="msg-error">Required field</div>'), minlength: jQuery.validator.format('<div id="error" class="msg-error">At least 6 characters</div>'), maxlength: jQuery.validator.format('<div id="error" class="msg-error">Type less than 255 characters</div>') },
+            
+          }
+        });
+     
+     
+      });
     });
- 
- 
-  });
-});
-</script>
+    </script>
 
 
 </body>

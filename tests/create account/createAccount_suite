@@ -8,21 +8,22 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="../All in blank.html">All in blank</a></td></tr>
-<tr><td><a href="../4.01 Filling all the fields.html">4.01 Filling all the fields</a></td></tr>
-<tr><td><a href="../4.02 Leave in blank country.html">4.02 Leave in blank country</a></td></tr>
-<tr><td><a href="../4.03 Leave in blank state.html">4.03 Leave in blank state</a></td></tr>
-<tr><td><a href="../4.03 Leave in blank email.html">4.03 Leave in blank email</a></td></tr>
-<tr><td><a href="../4.06 Wron image URL.html">4.06 Wron image URL</a></td></tr>
-<tr><td><a href="../4.07 URL is not a image.html">4.07 URL is not a image</a></td></tr>
-<tr><td><a href="../4.12 Wrong email.html">4.12 Wrong email</a></td></tr>
-<tr><td><a href="../4.13 E-mail already exists.html">4.13 E-mail already exists</a></td></tr>
-<tr><td><a href="../4.14 More than 255 characters in e-mail.html">4.14 More than 255 characters in e-mail</a></td></tr>
-<tr><td><a href="../4.15 More than 255 characters in phone.html">4.15 More than 255 characters in phone</a></td></tr>
-<tr><td><a href="../4.16 More than 255 characters in price.html">4.16 More than 255 characters in price</a></td></tr>
-<tr><td><a href="../4.17 More than 255 characters in image.html">4.17 More than 255 characters in image</a></td></tr>
-<tr><td><a href="../4.18 More than 255 characters in description.html">4.18 More than 255 characters in description</a></td></tr>
-<tr><td><a href="../4.19 More than 255 characters in description.html">4.19 More than 255 characters in description</a></td></tr>
+<tr><td><a href="4.01 Filling all the fields.html">4.01 Filling all the fields</a></td></tr>
+<tr><td><a href="4.02 Leave in blank country.html">4.02 Leave in blank country</a></td></tr>
+<tr><td><a href="4.03 Leave in blank email.html">4.03 Leave in blank email</a></td></tr>
+<tr><td><a href="4.03 Leave in blank state.html">4.03 Leave in blank state</a></td></tr>
+<tr><td><a href="4.04 Leave in blank email.html">4.04 Leave in blank email</a></td></tr>
+<tr><td><a href="4.06 Wron image URL.html">4.06 Wron image URL</a></td></tr>
+<tr><td><a href="4.07 URL is not a image.html">4.07 URL is not a image</a></td></tr>
+<tr><td><a href="4.12 Wrong email.html">4.12 Wrong email</a></td></tr>
+<tr><td><a href="4.13 E-mail already exists.html">4.13 E-mail already exists</a></td></tr>
+<tr><td><a href="4.14 More than 255 characters in e-mail.html">4.14 More than 255 characters in e-mail</a></td></tr>
+<tr><td><a href="4.15 More than 255 characters in phone.html">4.15 More than 255 characters in phone</a></td></tr>
+<tr><td><a href="4.16 More than 255 characters in price.html">4.16 More than 255 characters in price</a></td></tr>
+<tr><td><a href="4.17 More than 255 characters in image.html">4.17 More than 255 characters in image</a></td></tr>
+<tr><td><a href="4.18 More than 255 characters in description.html">4.18 More than 255 characters in description</a></td></tr>
+<tr><td><a href="4.19 More than 255 characters in description.html">4.19 More than 255 characters in description</a></td></tr>
+<tr><td><a href="4.20 All in blank.html">4.20 All in blank</a></td></tr>
 </tbody></table>
 </body>
 </html>

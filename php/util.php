@@ -1,15 +1,22 @@
 <?php
 
+
+
+//Connnect to the database
 function createConnection()
 {
     $mysql = mysqli_connect("localhost","root","","iband_db");
     return $mysql;
 }
+
+//Close connection
 function closeConnection($mysql)
 {
     mysqli_close($mysql);
 }
 
+
+//Retrieve an array of a consult, $query= SQL statement with the consult
 function consult($query)
 {
     $mysql=createConnection();
@@ -31,6 +38,8 @@ function consult($query)
  
 }
 
+
+//Retrieve true or false if a record exists in the database, $query= consult for a specific record in the database
 function booleanConsult($query)
 {
     $mysql=createConnection();
@@ -61,6 +70,9 @@ function booleanConsult($query)
 }
 
 
+
+//Executes a atomic transaction: insert, delete or update
+//$sql= sql statement with the transaction
 function dml($sql){
 
     $mysql=createConnection();
