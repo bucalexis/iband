@@ -2,7 +2,7 @@
  
 
 
-require dirname(__FILE__) . '/../../php/Classes/Validator.php'; 
+require_once dirname(__FILE__) . '/../../php/Classes/Validator.php'; 
 class EmailTest extends \PHPUnit_Framework_TestCase
 {
 

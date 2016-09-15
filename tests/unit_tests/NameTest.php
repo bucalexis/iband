@@ -1,16 +1,13 @@
 <?php
  
-
-
-require dirname(__FILE__) . '/../../php/Classes/Validator.php'; 
+require_once dirname(__FILE__) . '/../../php/Classes/Validator.php'; 
 class NameTest extends \PHPUnit_Framework_TestCase
 {
 
 //////////////////////////////////TESTS FOR NAME////////////////////////////////////////////////////////////////////
 
 
-    //Email correct
-
+    //Name correct
     public function testNameCorrect()
     {
         $validator=new Validator();
@@ -20,7 +17,7 @@ class NameTest extends \PHPUnit_Framework_TestCase
 
 
    //Name is empty
-    public function testEmailEmpty()
+    public function testNameEmpty()
     {
         $validator=new Validator();
         $result=$validator->name("");

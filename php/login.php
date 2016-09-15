@@ -1,7 +1,8 @@
 <?php
  //Controller to validate the information from the login view, if everything is correct the user access to the system
  session_start(); 
- include ('./util.php'); 
+ require ('./Classes/Validator.php');
+ $validator=new Validator();
     
 
     $input=array(
@@ -15,44 +16,18 @@
 
 
     //Validate email
-    if($input['email']==""){
-    	$correct=false;
-    	$errors=$errors.'Email is required.<br>';
+    $result=$validator->emailLogin($input['email']);
+    if(!$result[0]){
+      $correct=false;
+      $errors=$errors.$result[1].'<br>';
     }
-    else{
-	    if(strlen($input['email'])>255){
-	    	$correct=false;
-	    	$errors=$errors.'Email must be less than 255 characters.<br>';
-	    }
-      else{
-        if (!filter_var($input['email'], FILTER_VALIDATE_EMAIL)){
-        $correct=false;
-        $errors=$errors.'Wrong email.<br>';
-        }
-        else{
-           if(!booleanConsult("SELECT * FROM musicartist WHERE email='".$input['email']."'")) {
-           $correct=false;
-           $errors=$errors.'Email does not exist.<br>';
-         }
-        }
-      }  
-     }
 
     //Validate password
-     if($input['password']==""){
-    	$correct=false;
-    	$errors=$errors.'Password is required.<br>';
+    $result=$validator->password($input['password']);
+    if(!$result[0]){
+      $correct=false;
+      $errors=$errors.$result[1].'<br>';
     }
-    else{
-	    if(strlen($input['password'])<6){
-	    	$correct=false;
-	    	$errors=$errors.'Password must be at least 6 characters.<br>';
-	    }
-	    if(strlen($input['password'])>255){
-	    	$correct=false;
-	    	$errors=$errors.'Password must be less than 255 characters.<br>';
-	    }
-	   }
  
     if($correct){
       //If there're no errors the user login into the system

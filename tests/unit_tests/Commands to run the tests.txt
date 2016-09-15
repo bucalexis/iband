@@ -1,0 +1,18 @@
+---------------Commands to run the tests----------------------
+
+To run each test file individually you can execute one by one the next commands:
+
+phpunit tests/unit_tests/NameTest.php
+phpunit tests/unit_tests/EmailTest.php
+phpunit tests/unit_tests/TypeTest.php
+phpunit tests/unit_tests/CountryTest.php
+phpunit tests/unit_tests/StateTest.php
+phpunit tests/unit_tests/PasswordTest.php
+phpunit tests/unit_tests/PasswordConfirmationTest.php
+phpunit tests/unit_tests/GenericTest.php
+phpunit tests/unit_tests/ImageTest.php
+
+
+To run all the files you can execute the next command:
+
+phpunit --test-suffix Test.php tests/unit_tests/
