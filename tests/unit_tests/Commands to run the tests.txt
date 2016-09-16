@@ -11,6 +11,7 @@ phpunit tests/unit_tests/PasswordTest.php
 phpunit tests/unit_tests/PasswordConfirmationTest.php
 phpunit tests/unit_tests/GenericTest.php
 phpunit tests/unit_tests/ImageTest.php
+phpunit tests/unit_tests/PasswordUpdateTest.php
 
 
 To run all the files you can execute the next command:

@@ -17,9 +17,9 @@
     	'type'=> $_POST['type'],
     	'country'=> $_POST['country'],
     	'state'=> $_POST['state'],
-    	'email'=> trim($_POST['email']),
-    	'password'=> $_POST['password'],
-    	'password2'=> $_POST['password2'],
+    	'currentPassword'=> $_POST['currentPassword'],
+    	'newPassword'=> $_POST['newPassword'],
+      'confirmPassword'=> $_POST['confirmPassword'],
     	'phone'=> trim($_POST['phone']),
     	'price'=> trim($_POST['price']),
     	'image'=> $_POST['image'],
@@ -66,27 +66,13 @@
       $errors=$errors.$result[1].'<br>';
     }
 
-
-    //Validate email
-    $result=$validator->email($input['email']);
-    if(!$result[0]){
-      $correct=false;
-      $errors=$errors.$result[1].'<br>';
-    }
-
     //Validate password
-    $result=$validator->password($input['password']);
+    $result=$validator->changePassword($input['currentPassword'],$input['newPassword'],$input['confirmPassword'],$_SESSION['user']);
     if(!$result[0]){
       $correct=false;
       $errors=$errors.$result[1].'<br>';
     }
-
-    //Validate password2
-    $result=$validator->passwordConfirmation($input['password'],$input['password2']);
-    if(!$result[0]){
-      $correct=false;
-      $errors=$errors.$result[1].'<br>';
-    }
+    
     
     //Validate phone
     $result=$validator->genericLength($input['phone'],255,'Phone');
@@ -130,32 +116,32 @@
 
   //If there're no errors the user is created, on the other hand if there are, the errors will be displayed in the register view
   if($correct){
-      $sql="INSERT INTO musicartist VALUES (".
-      		"null,".
-      		"'".$input['name']."',".
-      		"'".$input['phone']."',".
-      		"'".$input['price']."',".
-      		"'".$input['email']."',".
-      		"'".$input['password']."',".
-      		"'".$input['image']."',".
-      		"'".$input['musiclist']."',".
-      		"'".$input['description']."',".
-      		"'".$input['country']."',".
-      		"'".$input['state']."',".
-      		"'".$input['type']."',".
-      		"null,".
-      		"null)";
-      
+      $sql="UPDATE musicartist SET ".
+            "musicartist.name='".$input['name']."', ".
+            "musicartist.id_country=".$input['country'].", ".
+            "musicartist.id_type=".$input['type'].", ".
+            "musicartist.id_state=".$input['state'].", ".
+            "musicartist.phone='".$input['phone']."', ".
+            "musicartist.price='".$input['price']."', ".
+            "musicartist.musiclist='".$input['musiclist']."', ".
+            "musicartist.description='".$input['description']."', ".
+            "musicartist.image='".$input['image']."'";
+
+      if($input['newPassword']!="")
+        $sql=$sql.", musicartist.password='".$input['newPassword']."' ";      
+            
+       $sql=$sql." WHERE musicartist.id=".$_SESSION['user'];   
+                  
       dml($sql);
-      $errors="<div id=success>Your account was created succesfully.</div>";
+      $errors="<div id=success>Your account was updated succesfully.</div>";
       $_SESSION['errors']=$errors;
-      header('Location: ./../login.php');	
+      header('Location: ./../update_profile.php');	
       
 
   }
   else{
   	$_SESSION['errors']=$errors;
-    header('Location: ./../register.php');	
+    header('Location: ./../update_profile.php');	
   }
 
    

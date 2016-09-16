@@ -185,6 +185,95 @@ class Validator {
         return $result;
     }
 
+    //Validate change password
+    public function changePassword($old,$new,$confirmation,$user){
+        $result[0]=true;
+        $result[1]="";
+
+        //If was received only confirmation
+         if(($old==""&&$new=="")&&$confirmation!=""){
+            $result[0]=false;
+            $result[1]='Current password is required.';
+            return $result;
+         }
+
+         //If was received only new and confirmation
+         if($old==""&&($new!=""&&$confirmation!="")) {
+            $result[0]=false;
+            $result[1]='Current password is required.';
+            return $result;
+         }
+
+         //If was received old and new without confirmation
+         if(($old!=""&&$new!="")&&$confirmation==""){
+            $result[0]=false;
+            $result[1]='Cofirmation new password is required.';
+            return $result;
+         }
+
+         //If was old without new
+         if(($old!=""&&$new=="")&&$confirmation==""){
+            $result[0]=false;
+            $result[1]='New password is required.';
+            return $result;
+         }
+
+         //If was received only new
+         if(($old==""&&$new!="")&&$confirmation==""){
+            $result[0]=false;
+            $result[1]='Current password is required.';
+            return $result;
+         }
+
+          //If was received only old and confirmation
+         if(($old!=""&&$confirmation!="")&&$new==""){
+            $result[0]=false;
+            $result[1]='New password is required.';
+            return $result;
+         }
+
+         if(($old!=""&&$new!="")&&$confirmation!=""){
+            if(strlen($old)<6){
+                $result[0]=false;
+                $result[1]='Password must be at least 6 characters.';
+                return $result;
+            }  
+            if(strlen($old)>255){
+                $result[0]=false;
+                $result[1]='Password must be less than 255 characters.';
+                return $result;
+            }  
+            if(strlen($new)<6){
+                $result[0]=false;
+                $result[1]='New password must be at least 6 characters.';
+                return $result;
+            }  
+            if(strlen($new)>255){
+                $result[0]=false;
+                $result[1]='New password must be less than 255 characters.';
+                return $result;
+            }    
+            if($new!=$confirmation){
+                $result[0]=false;
+                $result[1]='Passwords do not match.';
+                return $result;
+            }  
+
+
+            if(!booleanConsult('SELECT * FROM musicartist WHERE id='.$user.' AND password='.'"'.$old.'"')) {
+                $result[0]=false;
+                $result[1]='Wrong password.';
+                return $result;
+            }
+
+            
+         }
+
+        
+
+        return $result;
+    }
+
 
     public function genericLength($text,$limit,$field_name){
         $result[0]=true;
