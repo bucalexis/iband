@@ -187,17 +187,20 @@
                                     <div class="md-content">
                                         <div class="folio">
                                             <div class="port-img margin-t-40" id="div-modal-img">
-                                                <img src="./img/play.png" alt="Sorry, the image is not available" class="img-responsive">
+                                                <img src=<?php echo '"'.$image.'"'; ?> alt="Sorry, the image is not available" class="img-responsive">
                                             </div>
                                             <div class="sp-name"><strong><?php echo $name; ?></strong><br><span><?php echo $country.", ".$state."<br>".$type; ?></span></div>
                                             <div class="sp-dsc">
-                                                This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.
+                                                <strong>Price: </strong><?php echo $price; ?><br>
+                                                <strong>Phone: </strong><?php echo $phone; ?><br>
+                                                <strong>E-mail: </strong><?php echo $email; ?><br>
+                                                <strong>Description: </strong><br><?php echo $description; ?><br>
                                                 <blockquote>
-                                                    <p>Here is a long quotation here is a long quotation proin gravida nibh vel velit auctor aliquet aenean sollicitudin.</p>
+                                                    
                                                 </blockquote>
-                                                This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                                   
                                             </div>
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLvJfNEOVIPtt4vZK6Vxx9rDGUUL51SlIm" frameborder="0" allowfullscreen></iframe>
+                                            <?php echo $musiclist; ?>
                                             <button class="md-close"><i class="fa fa-times"></i></button>
                                         </div>
                                     </div>
