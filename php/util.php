@@ -23,7 +23,7 @@ function consult($query)
     
  // Query execution; returns identifier of the result group
    $results = $mysql->query($query);
-   $array;
+   $array=null;
    $i=0;
     
     while ($row = mysqli_fetch_array($results, MYSQLI_BOTH)) {
@@ -87,6 +87,7 @@ function dml($sql){
       closeConnection($mysql);
     
   }
+
 
 
 
