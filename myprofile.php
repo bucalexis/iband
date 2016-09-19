@@ -66,6 +66,8 @@
     <link rel="stylesheet" type="text/css" href="css/plugins.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/green.css" media="screen"/>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="js/venobox/venobox.css" type="text/css" media="screen" />
 
     <!-- Modernizr
     ================================================== -->
@@ -144,12 +146,11 @@
                 <hr>    
                 <div class="row">
                     <div class="col-md-3 col-sm-4">
-                        <div class=" design effects overlay-effect clearfix">
+                        <div class=" design effects" >
                                     <div class="img">
-                                        <img src=<?php echo '"'.$image.'"'; ?> alt="Sorry, the image is not available">
-                                        <div class="overlay">
-                                            <button class="md-trigger expand" data-modal="modal-1"><i class="fa fa-search"></i><br/>view More</button>
-                                        </div>
+                                        <a class="venobox" data-type="youtube" href=<?php echo '"'.$musiclist.'"'; ?> ><img src=<?php echo '"'.$image.'"'; ?> alt="Sorry, the image is not available"></a>
+                                        
+
                                     </div>
                                 </div>
                     </div>
@@ -157,10 +158,12 @@
                         <div class="cv-item">
                             <h4><?php echo $name; ?></h4>
                             <p>
-                                <strong>Country: </strong><?php echo $country; ?><br>
-                                <strong>State: </strong><?php echo $state; ?><br>
-                                <strong>Type: </strong><?php echo $type; ?><br>
-                                <strong>Price: </strong><?php if($price==""){echo "Not available";} else {echo $price;} ?><br>
+                                <strong>Country: </strong><?php echo $country; ?>&nbsp;&nbsp;&nbsp;<strong>State: </strong><?php echo $state; ?><br>
+                                
+                                <strong>Type: </strong><?php echo $type; ?>&nbsp;&nbsp;&nbsp; <strong>Price: </strong><?php if($price==""){echo "Not available";} else {echo $price;} ?><br>
+                                <strong>Email: </strong><?php echo $email; ?>&nbsp;&nbsp;&nbsp; <strong>Phone: </strong><?php if($phone==""){echo "Not available";} else {echo $phone;} ?><br>
+
+                               
                                 <strong>Description: </strong>
                                 <?php if($description==""){echo "Not available";} else {echo $description;} ?>
                             </p>
@@ -178,33 +181,6 @@
               
             </section>
             <!-- End Experience -->
-
-			<!--====================
-                HOME
-                ====================-->
-                
-                            <div class="md-modal md-effect" id="modal-1">
-                                    <div class="md-content">
-                                        <div class="folio">
-                                            <div class="port-img margin-t-40" id="div-modal-img">
-                                                <img src=<?php echo '"'.$image.'"'; ?> alt="Sorry, the image is not available" class="img-responsive">
-                                            </div>
-                                            <div class="sp-name"><strong><?php echo $name; ?></strong><br><span><?php echo $country.", ".$state."<br>".$type; ?></span></div>
-                                            <div class="sp-dsc">
-                                                <strong>Price: </strong><?php echo $price; ?><br>
-                                                <strong>Phone: </strong><?php echo $phone; ?><br>
-                                                <strong>E-mail: </strong><?php echo $email; ?><br>
-                                                <strong>Description: </strong><br><?php echo $description; ?><br>
-                                                <blockquote>
-                                                    
-                                                </blockquote>
-                                   
-                                            </div>
-                                            <?php echo $musiclist; ?>
-                                            <button class="md-close"><i class="fa fa-times"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
 
 
 			
@@ -231,7 +207,14 @@
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/plugins.js"></script>
 	<script type="text/javascript" src="js/jquery.app.js"></script>
+     <script type="text/javascript" src="js/venobox/venobox.min.js"></script>
+   <script>
+       $(document).ready(function(){
 
+    /* default settings */
+            $('.venobox').venobox(); 
+        });
+   </script>
 
 </body>
 </html>

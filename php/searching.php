@@ -10,7 +10,7 @@
     $state=$_GET['state'];
     $type= $_GET['type'];
 
-    
+    $results
 
     if($name==""&&$country==""&&$state==""&&$type==""){
         $errors="<div id='alert' >At least choose a filter or try a name.</div>";

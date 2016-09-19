@@ -10,7 +10,6 @@
 
 
     //Building html code for the combobox
-    $html='<option value="">No selected</option>';
     foreach ($data as $row) {
         $html=$html.'<option value="'.$row[0].'">'.$row[1].'</option>';
     }

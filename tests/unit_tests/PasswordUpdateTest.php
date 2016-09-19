@@ -19,7 +19,7 @@ class PasswordUpdateTest extends \PHPUnit_Framework_TestCase
     public function testPasswordCorrect()
     {
         $validator=new Validator();
-        $result=$validator->changePassword("123456","abcdef","abcdef",999);
+        $result=$validator->changePassword("123456","abcdef","abcdef",100);
         $this->assertTrue($result[0]);
     }
 

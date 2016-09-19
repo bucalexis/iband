@@ -38,10 +38,6 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/green.css" media="screen"/>
 
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <link rel="stylesheet" href="js/venobox/venobox.css" type="text/css" media="screen" />
-
     <!-- Modernizr
     ================================================== -->
     <script type="text/javascript" src="js/modernizr.js"></script>
@@ -59,19 +55,14 @@
                          
                   },
                   success:  function (response) {
-                         $("#state").html('<option value="">All states</option>');
-                         $(response).appendTo("#state");
-                      
-
+                         $("#state").html(response);
                   }
           });
         else{
-          $("#state").html('<option value="">All states</option>');
+          $("#state").html('<option value="">No selected</option>');
         }
   }
   </script>
-
-
 
 
 </head>
@@ -124,15 +115,13 @@
                 <p class="sub-title">Look for a music artist</p>
                 <h3 class="title">Searching</h3>
                 <hr/>
-                <div id="input-search">
                 <?php 
                     if(isset($_SESSION['errors'])){                    
-                       echo $_SESSION['errors'];
+                       echo '<div>'.$_SESSION['errors'].'</div>';
                        unset($_SESSION['errors']);
                     }
                     
                 ?>
-                </div>
                <form id="form" name="form"  class="margin-t-40" >
                     <div class="row">
                         <div class="col-md-12">
@@ -174,21 +163,140 @@
                             <input  type="text" name="name" id="name" placeholder="Name" class="campos"/>
                             <!-- Submit_Button -->
                             <div class="text-right">
-                                <input type="submit" class="btn btn-custom"  value="Search" id="btn" onclick="searching($('#name').val(),$('#country').val(),$('#state').val(),$('#type').val() );return false;"/><br>
+                                <input type="submit" class="btn btn-custom"  value="Search" id="btn" onclick="searching($('#name').val());return false;"/><br>
                             </div>
                         </div>
 
                     </div> <!-- End row -->
                 </form><!-- END FORM -->
 
-            <div id="results">
-                
-            </div>
+
+             <?php if(isset($_SESSION['search'])){ $i=0;?>
+
+                <?php foreach ($_SESSION['search'] as $row) {
+                     $id=$row['id'];
+                     $name=$row['name'];
+                     $type=consult("SELECT name FROM type WHERE id=".$row['id_type']);
+                     $type=$type[0]['name'];
+                     $country=consult("SELECT name FROM country WHERE id=".$row['id_country']);
+                     $country=$country[0]['name'];
+                     $state=consult("SELECT name FROM state WHERE id=".$row['id_state']);
+                     $state=$state[0]['name'];
+                     $image=$row['image'];
+                     if($image=="")
+                        $image="./img/default.jpg";
+                    
+                     $email=$row['email'];
+                     $phone=$row['phone'];
+                     $price=$row['price'];
+                     $musiclist=$row['musiclist'];
+                     $description=$row['description'];
+                ?>
 
 
+
+              <!-- Experience-Item -->
+                <hr>    
+                <div class="row">
+                    <div class="col-md-3 col-sm-4">
+                        <div class=" design effects overlay-effect clearfix">
+                                    <div class="img">
+                                        <img src=<?php echo '"'.$image.'"'; ?> alt="Sorry, the image is not available">
+                                        <div class="overlay">
+                                            <button class="md-trigger expand" data-modal="modal-<?php echo $i.'"'; ?> ><i class="fa fa-search"></i><br/>view More</button>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="col-md-9 col-sm-8">
+                        <div class="cv-item">
+                            <h4><?php echo $name; ?></h4>
+                            <p>
+                                <strong>Country: </strong><?php echo $country; ?><br>
+                                <strong>State: </strong><?php echo $state; ?><br>
+                                <strong>Type: </strong><?php echo $type; ?><br>
+                                <strong>Price: </strong><?php if($price==""){echo "Not available";} else {echo $price;} ?><br>
+                                <strong>Description: </strong>
+                                <?php if($description==""){echo "Not available";} else {echo $description;} ?>
+                            </p>
+                        </div><!-- end .cv-item -->
+                    </div>
+                </div>
+
+
+
+                            <?php $i++;} ?>  
+
+             <?php } ?>  
+
+              
             </section>
 
-          
+
+            <!-- End Experience -->
+
+            <!--====================
+                HOME
+                ====================-->
+  
+                 
+
+			<!--====================
+                MODAL ITEM
+                ====================-->
+                <?php if(isset($_SESSION['search'])){ $i=0;?>
+
+                <?php foreach ($_SESSION['search'] as $row) {
+                     $id=$row['id'];
+                     $name=$row['name'];
+                     $type=consult("SELECT name FROM type WHERE id=".$row['id_type']);
+                     $type=$type[0]['name'];
+                     $country=consult("SELECT name FROM country WHERE id=".$row['id_country']);
+                     $country=$country[0]['name'];
+                     $state=consult("SELECT name FROM state WHERE id=".$row['id_state']);
+                     $state=$state[0]['name'];
+                     $image=$row['image'];
+                     if($image=="")
+                        $image="./img/default.jpg";
+                    
+                     $email=$row['email'];
+                     $phone=$row['phone'];
+                     $price=$row['price'];
+                     $musiclist=$row['musiclist'];
+                     $description=$row['description'];
+                ?>
+                                    <div class="md-modal md-effect" id="modal-<?php echo $i.'"'; ?>>
+                                    <div class="md-content">
+                                        <div class="folio">
+                                            <div class="port-img margin-t-40" id="div-modal-img">
+                                                <img src=<?php echo '"'.$image.'"'; ?> alt="Sorry, the image is not available" class="img-responsive">
+                                            </div>
+                                            <div class="sp-name"><strong><?php echo $name; ?></strong><br><span><?php echo $country.", ".$state."<br>".$type; ?></span></div>
+                                            <div class="sp-dsc">
+                                                <strong>Price: </strong><?php echo $price; ?><br>
+                                                <strong>Phone: </strong><?php echo $phone; ?><br>
+                                                <strong>E-mail: </strong><?php echo $email; ?><br>
+                                                <strong>Description: </strong><br><?php echo $description; ?><br>
+                                                <blockquote>
+                                                    
+                                                </blockquote>
+                                   
+                                            </div>
+                                            <?php echo $musiclist; ?>
+                                            <button class="md-close"><i class="fa fa-times"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        <?php $i++;} ?>  
+
+             <?php  
+                       session_unset();
+                       session_destroy();                 
+
+             } ?>  
+
+			
 
             <!-- ====================
                  FOOTER
@@ -213,56 +321,29 @@
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/plugins.js"></script>
 	<script type="text/javascript" src="js/jquery.app.js"></script>
-    <script type="text/javascript" src="js/venobox/venobox.min.js"></script>
-
 
       <!-- Ajax to reload the state combobox -->
   <!-- Ajax to reload the state combobox -->
   <script>
-
-  function searching(name, country, state,type){
+  function searching(name){
           var parametros = {
-                  "name" : name,
-                  "country": country,
-                  "state": state,
-                  "type": type
+                  "name" : name
           };
-          if(name==""&&country==""&&state==""&&type==""){
-                $("#input-search").html("<div id='alert' >At least choose a filter or try a name.</div>");
-                $("#results").html("");
-            }
-            else{
-              $.ajax({
-                      dataType: "json",
-                      data:  parametros,
-                      url:   './php/ajax_searching.php',
-                      type:  'get',
-                      beforeSend: function () {
-                        $("#input-search").html("");
+     
+          $.ajax({
+                  dataType: "json",
+                  data:  parametros,
+                  url:   './php/ajax_searching.php',
+                  type:  'get',
+                  beforeSend: function () {
                          
-                         $("#results").html("");
-                         $("#results").html("<div id='divFormRegister'><img src='http://www.sannichi-ybs.co.jp/sanybsgrp/wp-content/themes/ybsgrp/images/loading.gif'></div>");
-
-                             
-                      },
-                      success:  function (response) {
-                        $("#results").html("");
-                              if($(response).size()>0)
-                              {
-                                  $.each(response, function(i,row){
-                                    var newRow =
-                                        '<hr> <div class="row"> <div class="col-md-3 col-sm-4"><div class=" design effects overlay-effect clearfix"> <div class="img"> <a class="venobox" data-type="youtube" title="'+row.name+' - Music list" href="'+row.musiclist+'"><img src="'+row.image+'"></a></div> </div> </div><div class="col-md-9 col-sm-8"> <div class="cv-item"> <h4>'+row.name+'</h4> <p> <strong>Country: </strong>'+row.country+'&nbsp;&nbsp;&nbsp;<strong>State: </strong>'+row.state+'<br> <strong>Type: </strong>'+row.type+'&nbsp;&nbsp;&nbsp; <strong>Price: </strong>'+row.price+'<br> <strong>Email: </strong>'+row.email+'&nbsp;&nbsp;&nbsp; <strong>Phone: </strong>'+row.phone+'<br> <strong>Description: </strong>'+row.description+' </p>  </div> </div> </div>';
-                                    $(newRow).appendTo("#results");
-                                    });
-                                  $('.venobox').venobox();
-                              }
-                              else{
-                                $("#results").html("<br><div id='alert' >Results not found.</div>");
-
-                              }
-                      }
-              });
-      }
+                  },
+                  success:  function (response) {
+                          $.each(response, function(i,cliente){
+                            alert(cliente['email']);
+                            });
+                  }
+          });
   }
   </script>
  

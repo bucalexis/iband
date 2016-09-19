@@ -345,7 +345,8 @@
                          
                   },
                   success:  function (response) {
-                         $("#state").html(response);
+                         $("#state").html('<option value="">Not selected</option>');
+                         $(response).appendTo("#state");
                   }
           });
         else{
