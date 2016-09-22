@@ -1,3 +1,8 @@
+<?php session_start(); 
+if(isset($_SESSION['user'])){    
+   header('Location: ./myprofile.php');                  
+} 
+?>
 
 <!doctype html>
 <html lang="en" class="no-js">
