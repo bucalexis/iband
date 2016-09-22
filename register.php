@@ -34,7 +34,7 @@ if(isset($_SESSION['user'])){
     <link rel="stylesheet" type="text/css" href="css/plugins.css" media="screen" />
      
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrapValidator.css"  />
+   
 
 	  <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/green.css" media="screen"/>
