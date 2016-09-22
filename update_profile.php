@@ -201,7 +201,7 @@
                            
                             <!-- Submit_Button -->
                          
-                            <input type="submit" class="btn btn-custom"  value="Register" id="btn"/><br>
+                            <input type="submit" class="btn btn-custom"  value="Update" id="btn"/><br>
                            
                             </div>
                         </div>
