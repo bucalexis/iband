@@ -39,6 +39,14 @@
 
 <body data-spy="scroll" data-offset="120">
 
+<!-- Preloader -->
+    <div class="animationload">
+        <div class="loader">
+            Loading...
+        </div>
+    </div> 
+    <!-- End Preloader -->
+
   
 
 
