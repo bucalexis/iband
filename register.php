@@ -31,7 +31,7 @@ if(isset($_SESSION['user'])){
 
     <!-- Stylesheet
     ================================================== -->
-    
+    <link rel="stylesheet" type="text/css" href="css/plugins.css" media="screen" />
      
 
    
