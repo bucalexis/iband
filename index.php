@@ -59,10 +59,10 @@
 				<a class="elemadded responsive-link" href="#">Menu</a>
 				<div class="navbar-vertical">
 					<ul class="main-menu nav">
-                        <li class="active"><a href="./index.html"><i class="pe-7s-home"></i>Home</a></li>
-						<li ><a href="./searching.html"><i class="pe-7s-search"></i>Searching</a></li>
-                        <li ><a href="./register.html"><i class="pe-7s-add-user"></i>Register</a></li>
-                        <li ><a href="./login.html"><i class="pe-7s-network"></i>Login</a></li>
+                        <li class="active"><a href="./index.php"><i class="pe-7s-home"></i>Home</a></li>
+						<li ><a href="./searching.php"><i class="pe-7s-search"></i>Searching</a></li>
+                        <li ><a href="./register.php"><i class="pe-7s-add-user"></i>Register</a></li>
+                        <li ><a href="./login.php"><i class="pe-7s-network"></i>Login</a></li>
                         
 					</ul>
 				</div>
