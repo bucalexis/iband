@@ -47,7 +47,7 @@ if(isset($_SESSION['user'])){
 
     <!-- Modernizr
     ================================================== -->
-    <script type="text/javascript" src="js/modernizr.js"></script>
+    <script type="text/javascript" src="./js/modernizr.js"></script>
 </head>
 
 
@@ -201,11 +201,11 @@ if(isset($_SESSION['user'])){
     <a href="#" class="back-to-top"> <i class="pe-7s-angle-up"></i></a>
 
 
-   <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
-   <script src="js/jquery.min.js"></script>
-   <script type="text/javascript" src="js/plugins.js"></script>
-   <script type="text/javascript" src="js/jquery.app.js"></script>
-   <script src="js/jquery.validate.min.js"></script>   
+   <script type="text/javascript" src="./js/jquery-2.2.0.min.js"></script>
+   <script src="./js/jquery.min.js"></script>
+   <script type="text/javascript" src="./js/plugins.js"></script>
+   <script type="text/javascript" src="./js/jquery.app.js"></script>
+   <script src="./js/jquery.validate.min.js"></script>   
 
 
 
