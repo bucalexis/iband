@@ -93,7 +93,7 @@
 					<ul class="main-menu nav"> 
             <li ><a href="./myprofile.php"><i class="pe-7s-user"></i>My profile</a></li>
             <li class="active"><a href="./update_profile.php"><i class="pe-7s-note"></i>Update profile</a></li>
-            <li ><a href="./php/logout.php."><i class="pe-7s-network"></i>Logout</a></li>
+            <li ><a href="./php/logout.php"><i class="pe-7s-network"></i>Logout</a></li>
 					</ul>
 				</div>
 			</header>
