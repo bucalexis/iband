@@ -250,6 +250,7 @@
                               if($(response).size()>0)
                               {
                                   $.each(response, function(i,row){
+                                    row.image=row.image.replace("http","https");
                                     var newRow =
                                         '<hr> <div class="row"> <div class="col-md-3 col-sm-4"><div class=" design effects overlay-effect clearfix"> <div class="img"> <a class="venobox" data-type="youtube" title="'+row.name+' - Music list" href="'+row.musiclist+'"><img src="'+row.image+'"></a></div> </div> </div><div class="col-md-9 col-sm-8"> <div class="cv-item"> <h4>'+row.name+'</h4> <p> <strong>Country: </strong>'+row.country+'&nbsp;&nbsp;&nbsp;<strong>State: </strong>'+row.state+'<br> <strong>Type: </strong>'+row.type+'&nbsp;&nbsp;&nbsp; <strong>Price: </strong>'+row.price+'<br> <strong>Email: </strong>'+row.email+'&nbsp;&nbsp;&nbsp; <strong>Phone: </strong>'+row.phone+'<br> <strong>Description: </strong>'+row.description+' </p>  </div> </div> </div>';
                                     $(newRow).appendTo("#results");
