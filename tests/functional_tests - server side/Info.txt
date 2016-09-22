@@ -1,0 +1,2 @@
+All of the tests are made them with selenium, so you need to have the selenium extension
+in firefox to run the tests.

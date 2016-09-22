@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="5.01 Filling all the fields.html">5.01 Filling all the fields</a></td></tr>
+<tr><td><a href="5.02 Leave in blank country.html">5.02 Leave in blank country</a></td></tr>
+<tr><td><a href="5.03 Leave in blank state.html">5.03 Leave in blank state</a></td></tr>
+<tr><td><a href="5.04 Leave in blank image.html">5.04 Leave in blank image</a></td></tr>
+<tr><td><a href="5.06 Wrong image URL.html">5.06 Wrong image URL</a></td></tr>
+<tr><td><a href="5.05 Leave in blank phone.html">5.05 Leave in blank phone</a></td></tr>
+<tr><td><a href="5.07 URL is not a image.html">5.07 URL is not a image</a></td></tr>
+<tr><td><a href="5.08 Leave in blank musiclist.html">5.08 Leave in blank musiclist</a></td></tr>
+<tr><td><a href="5.09 Leave in blank description.html">5.09 Leave in blank description</a></td></tr>
+<tr><td><a href="5.1 Leave in blank type.html">5.1 Leave in blank type</a></td></tr>
+<tr><td><a href="5.11 Leave in blank price.html">5.11 Leave in blank price</a></td></tr>
+<tr><td><a href="5.12 Wrong password.html">5.12 Wrong password</a></td></tr>
+<tr><td><a href="5.13 passwords dont match.html">5.13 passwords dont match</a></td></tr>
+<tr><td><a href="5.14 No current password.html">5.14 No current password</a></td></tr>
+<tr><td><a href="5.15 No new password.html">5.15 No new password</a></td></tr>
+<tr><td><a href="5.16 More than 255 characters in password.html">5.16 More than 255 characters in password</a></td></tr>
+<tr><td><a href="5.17 More than 255 characters in new password.html">5.17 More than 255 characters in new password</a></td></tr>
+<tr><td><a href="5.18 Less than 6 characters in current password.html">5.18 Less than 6 characters in current password</a></td></tr>
+<tr><td><a href="5.19 Less than 6 characters in new password.html">5.19 Less than 6 characters in new password</a></td></tr>
+<tr><td><a href="5.20 Confirmation new password is required.html">5.20 Confirmation new password is required</a></td></tr>
+<tr><td><a href="5.21 More than 255 characters in phone.html">5.21 More than 255 characters in phone</a></td></tr>
+<tr><td><a href="5.22 More than 255 characters in price.html">5.22 More than 255 characters in price</a></td></tr>
+<tr><td><a href="5.23 More than 255 characters in image.html">5.23 More than 255 characters in image</a></td></tr>
+<tr><td><a href="5.24 More than 500 characters in description.html">5.24 More than 500 characters in description</a></td></tr>
+<tr><td><a href="5.25 More than 500 characters in musiclist.html">5.25 More than 500 characters in musiclist</a></td></tr>
+<tr><td><a href="5.26 All in blank.html">5.26 All in blank</a></td></tr>
+<tr><td><a href="Fixing the record.html">Fixing the record</a></td></tr>
+</tbody></table>
+</body>
+</html>

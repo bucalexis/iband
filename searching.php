@@ -39,7 +39,7 @@
     <link rel="stylesheet" type="text/css" href="css/green.css" media="screen"/>
 
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="js/venobox/venobox.css" type="text/css" media="screen" />
 
     <!-- Modernizr
