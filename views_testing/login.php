@@ -105,7 +105,7 @@ if(isset($_SESSION['user'])){
                        session_destroy();                 
                     }
                 ?>
-               <form id="form" name="form" method="POST" class="margin-t-40" action="./php/login.php">
+               <form id="formm" name="form" method="POST" class="margin-t-40" action="./php/login.php">
                     <div class="row">
                         <div class="col-md-12">
                         <div id="divFormRegister">
