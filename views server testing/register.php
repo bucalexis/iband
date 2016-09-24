@@ -117,7 +117,7 @@ if(isset($_SESSION['user'])){
                     } 
                     
                 ?>
-               <form id="form" name="form" method="POST" class="margin-t-40" action="./php/createUser.php">
+               <form id="formm" name="form" method="POST" class="margin-t-40" action="./php/createUser.php">
                     <div class="row">
                         <div class="col-md-12">
                         <div id="divFormRegister">

@@ -127,7 +127,7 @@
                     } 
                     
                 ?>
-               <form id="form" name="form" method="POST" class="margin-t-40" action="./php/updateUser.php">
+               <form id="formm" name="form" method="POST" class="margin-t-40" action="./php/updateUser.php">
                     <div class="row">
                         <div class="col-md-12">
                         <div id="divFormRegister">
