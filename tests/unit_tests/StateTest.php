@@ -26,7 +26,7 @@ class StateTest extends \PHPUnit_Framework_TestCase
     }
 
     //State doesn't exist in database
-    public function testFalseCountry()
+    public function testFalseState()
     {
         $validator=new Validator();
         $result=$validator->state("1000000");

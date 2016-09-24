@@ -19,7 +19,7 @@ class GenericTest extends \PHPUnit_Framework_TestCase
     }
 
     //Phone more than 255
-     public function testNameMoreThan255()
+     public function testPhoneMoreThan255()
     {
         $validator=new Validator();
         $result=$validator->genericLength("alealexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexalexx@hotmail.com",255,"Phone");
