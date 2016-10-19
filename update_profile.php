@@ -113,8 +113,8 @@
                  EXPERIENCE 
                  ====================-->
             <section class="experience section section-t wow fadeInRight animated" id="experience">
-                <p class="sub-title">Be a member of us!</p>
-                <h3 class="title">Register</h3>
+                <p class="sub-title">Modify your information!</p>
+                <h3 class="title">UPDATE</h3>
                 <hr/>
                 <?php 
                     if(isset($_SESSION['errors'])){                    
