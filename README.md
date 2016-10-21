@@ -5,4 +5,6 @@ The main objective is to provide a platform to find artists of our interest in o
 You can run the app by using XAMPP or any PHP server.
 
 <img src="https://drive.google.com/uc?id=0BzaJRqJTRouFcnA0ZVY3Ml93Z2M"/>
+<br>
+<img src="https://drive.google.com/uc?id=0BzaJRqJTRouFbWVkZk1pcWkycG8"/>
 
