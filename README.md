@@ -6,5 +6,7 @@ You can run the app by using XAMPP or any PHP server.
 
 <img src="https://drive.google.com/uc?id=0BzaJRqJTRouFcnA0ZVY3Ml93Z2M"/>
 <br>
-<img src="https://drive.google.com/uc?id=0BzaJRqJTRouFbWVkZk1pcWkycG8"/>
+<img src="https://drive.google.com/uc?id=0BzaJRqJTRouFT2U4eTV4Wk5fSG8"/>
+<br>
+<img src="https://drive.google.com/uc?id=0BzaJRqJTRouFQ2o4X1h0QUFZWUk"/>
 
